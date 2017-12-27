@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const mq = window.matchMedia("(min-width: 767px)");
+      // media query event handler
+      if (matchMedia) {
+        const mq = window.matchMedia("(min-width: 500px)");
+        mq.addListener(WidthChange);
+        WidthChange(mq);
+      }
+
+      // media query change
+      function WidthChange(mq) {
+        if (mq.matches) {
+          $("#removeClass").addClass("nav navbar-nav navbar-right");
+          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
+          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <li> <p> Copyright © 2017 My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </li> </ul>');
+        } else {
+          $("#removeClass").removeAttr('class');
+          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <br><br> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <br><br> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
+          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <p> Copyright © 2017 My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </ul>');
+        }
+
+      }
+
+
+      $('.link-btn').click(function () {
+        $('.search-query').val("");
+        var itemsCSV = "Abou Shawarma,Aceite,Adanali Hasan Kolcuoglu Qatar,Agora,Al Bait Al Kuwaiti,Al Bisana,Al Dheyafa,Al Dirwandi,Al Huda Bakery & Snacks,Al Huda Express,Al Huda Restaurant,Al Kut Cafe,Al Maha,Al Mayass,Al Tabkha,Al Thouraya Restaurant,Alison Nelson Chocolate Bar,Angelina Paris,Applebees,Aquarius,Aramede,Arguelina Lounge,Asayel Al Sham,Asia Live,Astor Grill,Awtar,Baba Ghanouj,Baladna Mart,Balmesan,Baraha,Barahat al wakra,Baskin Robin's,Basta 23,Baya,Belgian Cafe,Biella,Biryani Hut,Blue,Bollywood Lounge & Restaurant,Boston's,Bread & Bagels,Brioche Doree,Brisket & Ribs,Burger Gourmet,Burger King,Burj Al Hamam,California Tortilla,Camille's Ice cream,Caminito,Cappuccino Lounge,Caramel,Carisma,Carluccio's,Casa Paco,Castello Ristorante Italiano,Chi Zen,Chili's,Chilli's House,Choowy Goowy,Chopsticks,Cinnzeo,Cold Stone Creamery,Conowarma,Cool Cut,Cool de Sac,Copacabana,Coral,Corniche,Crepaway,Crepe & More,Crepe Delicious,Crossroads Kitchen,Cucina,Damasca One,Debs w reman,Diner Station,Dippingo,Domino's Pizza,Dunia,Dunkin Donuts,Eau Du Rose,Emirgan Sutis,Espression Lavazza,Evviva,Farggi,Farggi,Flavours,Flor Gelatto,Forknife,Fruitella,Fruity Fruits,Fusion Restaurant,Gelato Rosa,German Doner Kabab,Gerry's grill,Ginger Club,Gioia,Golden Dragon,GRK Fresh Greek,Gymkhana,Haghia Sophia,Hive,Huntersroom &  Grill,Hwang,Il Cafe di Roma,Isla,Java U,Jazz Up,Johnny Rockets,Karaki,Kebabs & Kurries,L'atelier du chocolat,L'auberge,L'espresso,La Brushchetta Gharaffa,La Casa 28,La Spiga,Lava,Lebanese Village Restaurant,Lenotre,Lets Popcorn,Lina's Paris,Liquidity,Lobby Cafe,Lobby Lounge,Lobby lounge,Lord of the Wings,Luxe,Manhattan Fish Market,Marble Slab,Market,Mawasem,Max,Megapolis,Megu,Misk,Mix Lounge,Mokarabia,Moon deck,Mr. Doner Kebab,Nando's,Nektar pool Bar,Nestle toll house,Nobles Restaurant,Ocean Basket,Olive Oil,Olives,Opal,Orient Pearl,Outback Steakhouse,Paloma,Papermoon,Patagonia,Pizza Cone,Poori & Karak,Popcorn Girl,Prime,Pure,Qahwati,Quiznos,Remman Cafe,Rodizio,Rogers diner,Romano's Macaroni & Grill,Royal Indian,Saba W Masa,Sabai Thai,Salad Boutique,Salads and More,Salsa,Sandwich Factory,Sara B Lounge,Savor,Sbarro,Seasonal Tastes,Seasons Restaurant,Signature By Sanjeev Kapoor,So Jenni Cafe,Spice Market,Spice Republic,Sport Cafe,Stack Burger,Star Kebab,Strata,Taj Rasoi,Tamarind,The Atrium,The Coffee Bean & Tea Leaf,The Noodle House,The Rice Room,The Square,The Sushi Station,The View,Tim Hortons,Trader Vics,Tuile Cafe,Uno Pizzaeria & Grill,Urban Jazz,Victoria Tea Lounge,Vine,W Cafe,Wafflemeister,Wafi Gourmet,Wahm,Wazzup Hotdog,West End Cafe,Wok of fame,Wrap It,Ya-hala,Zaatar w Zeit,Zafran,Zafran Cafe,Zafran Dining Experience,Zawaya";
+        var itemsArray = itemsCSV.split(',');
+        for (var i = 0; i < results.length; i++) {
+          results[i] = '<span class="gaga">' + results[i] + '</span>';
+        }
+        $("#results").html('<div class="maaga" id="food"> <span class="gaga">Taj Rasoi</span> <span class="gaga">Sbarro</span> <span class="gaga">Seasonal Tastes</span> <span class="gaga">Seasons Restaurant</span> <span class="gaga">Signature By Sanjeev Kapoor</span> <span class="gaga">So Jenni Cafe</span> <span class="gaga">Spice Market</span> <span class="gaga">Spice Republic</span> <span class="gaga">Sport Cafe</span> <span class="gaga">Stack Burger</span> <span class="gaga">Star Kebab</span> <span class="gaga">Strata</span> <span class="gaga">Taj Rasoi</span> <span class="gaga">Tamarind</span> <span class="gaga">The Atrium</span> <span class="gaga">The Coffee Bean &amp; Tea Leaf</span> <span class="gaga">The Noodle House</span> <span class="gaga">The Rice Room</span> <span class="gaga">The Square</span> <span class="gaga">The Sushi Station</span> <span class="gaga">The View</span> <span class="gaga">Tim Hortons</span> <span class="gaga">Trader Vics</span> <span class="gaga">Tuile Cafe</span> <span class="gaga">Uno Pizzaeria &amp; Grill</span> <span class="gaga">Urban Jazz</span> <span class="gaga">Victoria Tea Lounge</span> <span class="gaga">Vine</span> <span class="gaga">W Cafe</span> <span class="gaga">Wafflemeister</span> <span class="gaga">Wafi Gourmet</span> <span class="gaga">Wahm</span> <span class="gaga">Wazzup Hotdog</span> <span class="gaga">West End Cafe</span> <span class="gaga">Wok of fame</span> <span class="gaga">Wrap It</span> <span class="gaga">Ya-hala</span> <span class="gaga">Zaatar w Zeit</span> <span class="gaga">Zafran</span> <span class="gaga">Zafran Cafe</span> <span class="gaga">Zafran Dining Experience</span> <span class="gaga">Zawaya</span> </div> <div class="maaga" id="leis"> <span class="gaga">Abou Shawarma</span> <span class="gaga">Aceite</span> <span class="gaga">Adanali Hasan Kolcuoglu Qatar</span> <span class="gaga">Agora</span> <span class="gaga">Al Bait Al Kuwaiti</span> <span class="gaga">Al Bisana</span> <span class="gaga">Al Dheyafa</span> <span class="gaga">Al Dirwandi</span> <span class="gaga">Al Huda Bakery &amp; Snacks</span> <span class="gaga">Al Huda Express</span> <span class="gaga">Al Huda Restaurant</span> <span class="gaga">Al Kut Cafe</span> <span class="gaga">Al Maha</span> <span class="gaga">Al Mayass</span> <span class="gaga">Al Tabkha</span> <span class="gaga">Al Thouraya Restaurant</span> <span class="gaga">Alison Nelson Chocolate Bar</span> <span class="gaga">Angelina Paris</span> <span class="gaga">Applebees</span> <span class="gaga">Aquarius</span> <span class="gaga">Aramede</span> <span class="gaga">Arguelina Lounge</span> <span class="gaga">Asayel Al Sham</span> <span class="gaga">Asia Live</span> <span class="gaga">Astor Grill</span> <span class="gaga">Awtar</span> <span class="gaga">Baba Ghanouj</span> <span class="gaga">Baladna Mart</span> <span class="gaga">Balmesan</span> <span class="gaga">Baraha</span> <span class="gaga">Barahat al wakra</span> <span class="gaga">Baskin Robin´s</span> <span class="gaga">Basta 23</span> <span class="gaga">Baya</span> <span class="gaga">Belgian Cafe</span> <span class="gaga">Biella</span> <span class="gaga">Biryani Hut</span> <span class="gaga">Blue</span> <span class="gaga">Bollywood Lounge &amp; Restaurant</span> <span class="gaga">Boston´s</span> <span class="gaga">Bread &amp; Bagels</span> <span class="gaga">Brioche Doree</span> <span class="gaga">Brisket &amp; Ribs</span> </div> <div class="maaga" id="heal"> <span class="gaga">Flavours</span> <span class="gaga">Flor Gelatto</span> <span class="gaga">Forknife</span> <span class="gaga">Fruitella</span> <span class="gaga">Fruity Fruits</span> <span class="gaga">Fusion Restaurant</span> <span class="gaga">Gelato Rosa</span> <span class="gaga">German Doner Kabab</span> <span class="gaga">Gerry´s grill</span> <span class="gaga">Ginger Club</span> <span class="gaga">Gioia</span> <span class="gaga">Golden Dragon</span> <span class="gaga">GRK Fresh Greek</span> <span class="gaga">Gymkhana</span> <span class="gaga">Haghia Sophia</span> <span class="gaga">Hive</span> <span class="gaga">Huntersroom &amp; Grill</span> <span class="gaga">Hwang</span> <span class="gaga">Il Cafe di Roma</span> <span class="gaga">Isla</span> <span class="gaga">Java U</span> <span class="gaga">Jazz Up</span> <span class="gaga">Johnny Rockets</span> <span class="gaga">Karaki</span> <span class="gaga">Kebabs &amp; Kurries</span> <span class="gaga">L"atelier du chocolat</span> <span class="gaga">L"auberge</span> <span class="gaga">L’espresso</span> <span class="gaga">La Brushchetta Gharaffa</span> <span class="gaga">La Casa 28</span> <span class="gaga">La Spiga</span> <span class="gaga">Lava</span> <span class="gaga">Lebanese Village Restaurant</span> <span class="gaga">Lenotre</span> <span class="gaga">Lets Popcorn</span> <span class="gaga">Lina´s Paris</span> <span class="gaga">Liquidity</span> <span class="gaga">Lobby Cafe</span> <span class="gaga">Lobby Lounge</span> <span class="gaga">Lobby lounge</span> <span class="gaga">Lord of the Wings</span> <span class="gaga">Luxe</span> <span class="gaga">Manhattan Fish Market</span> </div> <div class="maaga" id="beau"> <span class="gaga">Marble Slab</span> <span class="gaga">Market</span> <span class="gaga">Mawasem</span> <span class="gaga">Max</span> <span class="gaga">Megapolis</span> <span class="gaga">Megu</span> <span class="gaga">Misk</span> <span class="gaga">Mix Lounge</span> <span class="gaga">Mokarabia</span> <span class="gaga">Moon deck</span> <span class="gaga">Mr. Doner Kebab</span> <span class="gaga">Nando´s</span> <span class="gaga">Nektar pool Bar</span> <span class="gaga">Nestle toll house</span> <span class="gaga">Nobles Restaurant</span> <span class="gaga">Ocean Basket</span> <span class="gaga">Olive Oil</span> <span class="gaga">Olives</span> <span class="gaga">Opal</span> <span class="gaga">Orient Pearl</span> <span class="gaga">Outback Steakhouse</span> <span class="gaga">Paloma</span> <span class="gaga">Papermoon</span> <span class="gaga">Patagonia</span> <span class="gaga">Pizza Cone</span> <span class="gaga">Poori &amp; Karak</span> <span class="gaga">Popcorn Girl</span> <span class="gaga">Prime</span> <span class="gaga">Pure</span> <span class="gaga">Qahwati</span> <span class="gaga">Quiznos</span> <span class="gaga">Remman Cafe</span> <span class="gaga">Rodizio</span> <span class="gaga">Rogers diner</span> <span class="gaga">Romano´s Macaroni &amp; Grill</span> <span class="gaga">Royal Indian</span> <span class="gaga">Saba W Masa</span> <span class="gaga">Sabai Thai</span> <span class="gaga">Salad Boutique</span> <span class="gaga">Salads and More</span> <span class="gaga">Salsa</span> <span class="gaga">Sandwich Factory</span> <span class="gaga">Sara B Lounge</span> </div> <div class="maaga" id="svc"> <span class="gaga">Savor</span> <span class="gaga">Sbarro</span> <span class="gaga">Seasonal Tastes</span> <span class="gaga">Seasons Restaurant</span> <span class="gaga">Signature By Sanjeev Kapoor</span> <span class="gaga">So Jenni Cafe</span> <span class="gaga">Spice Market</span> <span class="gaga">Spice Republic</span> <span class="gaga">Sport Cafe</span> <span class="gaga">Stack Burger</span> <span class="gaga">Star Kebab</span> <span class="gaga">Strata</span> <span class="gaga">Taj Rasoi</span> <span class="gaga">Tamarind</span> <span class="gaga">The Atrium</span> <span class="gaga">The Coffee Bean &amp; Tea Leaf</span> <span class="gaga">The Noodle House</span> <span class="gaga">The Rice Room</span> <span class="gaga">The Square</span> <span class="gaga">The Sushi Station</span> <span class="gaga">The View</span> <span class="gaga">Tim Hortons</span> <span class="gaga">Trader Vics</span> <span class="gaga">Tuile Cafe</span> <span class="gaga">Uno Pizzaeria &amp; Grill</span> <span class="gaga">Urban Jazz</span> <span class="gaga">Victoria Tea Lounge</span> <span class="gaga">Vine</span> <span class="gaga">W Cafe</span> <span class="gaga">Wafflemeister</span> <span class="gaga">Wafi Gourmet</span> <span class="gaga">Wahm</span> <span class="gaga">Wazzup Hotdog</span> <span class="gaga">West End Cafe</span> <span class="gaga">Wok of fame</span> <span class="gaga">Wrap It</span> <span class="gaga">Ya-hala</span> <span class="gaga">Zaatar w Zeit</span> <span class="gaga">Zafran</span> <span class="gaga">Zafran Cafe</span> <span class="gaga">Zafran Dining Experience</span> <span class="gaga">Zawaya</span> </div> <div class="maaga" id="stc"> <span class="gaga">Tuile Cafe</span> <span class="gaga">Uno Pizzaeria &amp; Grill</span> <span class="gaga">Urban Jazz</span> <span class="gaga">Victoria Tea Lounge</span> <span class="gaga">Vine</span> <span class="gaga">W Cafe</span> <span class="gaga">Wafflemeister</span> <span class="gaga">Wafi Gourmet</span> <span class="gaga">Wahm</span> <span class="gaga">Wazzup Hotdog</span> <span class="gaga">West End Cafe</span> <span class="gaga">Wok of fame</span> <span class="gaga">Wrap It</span> <span class="gaga">Ya-hala</span> <span class="gaga">Zaatar w Zeit</span> <span class="gaga">Zafran</span> <span class="gaga">Zafran Cafe</span> <span class="gaga">Zafran Dining Experience</span> <span class="gaga">Zawaya</span> <span class="gaga">Spice Republic</span> <span class="gaga">Savor</span> <span class="gaga">Sbarro</span> <span class="gaga">Seasonal Tastes</span> <span class="gaga">Seasons Restaurant</span> <span class="gaga">Signature By Sanjeev Kapoor</span> <span class="gaga">So Jenni Cafe</span> <span class="gaga">Spice Market</span> <span class="gaga">Sport Cafe</span> <span class="gaga">Stack Burger</span> <span class="gaga">Star Kebab</span> <span class="gaga">Strata</span> <span class="gaga">Taj Rasoi</span> <span class="gaga">Tamarind</span> <span class="gaga">The Atrium</span> <span class="gaga">The Coffee Bean &amp; Tea Leaf</span> <span class="gaga">The Noodle House</span> <span class="gaga">The Rice Room</span> <span class="gaga">The Square</span> <span class="gaga">The Sushi Station</span> <span class="gaga">The View</span> <span class="gaga">Tim Hortons</span> <span class="gaga">Trader Vics</span> </div>');
+        if (this.id === "food-btn") {
+          $('.maaga').hide();
+          $('#food').show();
+        } else if (this.id === "leis-btn") {
+          $('.maaga').hide();
+          $('#leis').show();
+        } else if (this.id === "heal-btn") {
+          $('.maaga').hide();
+          $('#heal').show();
+        } else if (this.id === "beau-btn") {
+          $('.maaga').hide();
+          $('#beau').show();
+        } else if (this.id === "svc-btn") {
+          $('.maaga').hide();
+          $('#svc').show();
+        } else if (this.id === "stc-btn") {
+          $('.maaga').hide();
+          $('#stc').show();
+        }
+      });
+      $('.maaga').hide();
+      $('#food').show();
+      var itemsCSV = "Abou Shawarma,Aceite,Adanali Hasan Kolcuoglu Qatar,Agora,Al Bait Al Kuwaiti,Al Bisana,Al Dheyafa,Al Dirwandi,Al Huda Bakery & Snacks,Al Huda Express,Al Huda Restaurant,Al Kut Cafe,Al Maha,Al Mayass,Al Tabkha,Al Thouraya Restaurant,Alison Nelson Chocolate Bar,Angelina Paris,Applebees,Aquarius,Aramede,Arguelina Lounge,Asayel Al Sham,Asia Live,Astor Grill,Awtar,Baba Ghanouj,Baladna Mart,Balmesan,Baraha,Barahat al wakra,Baskin Robin's,Basta 23,Baya,Belgian Cafe,Biella,Biryani Hut,Blue,Bollywood Lounge & Restaurant,Boston's,Bread & Bagels,Brioche Doree,Brisket & Ribs,Burger Gourmet,Burger King,Burj Al Hamam,California Tortilla,Camille's Ice cream,Caminito,Cappuccino Lounge,Caramel,Carisma,Carluccio's,Casa Paco,Castello Ristorante Italiano,Chi Zen,Chili's,Chilli's House,Choowy Goowy,Chopsticks,Cinnzeo,Cold Stone Creamery,Conowarma,Cool Cut,Cool de Sac,Copacabana,Coral,Corniche,Crepaway,Crepe & More,Crepe Delicious,Crossroads Kitchen,Cucina,Damasca One,Debs w reman,Diner Station,Dippingo,Domino's Pizza,Dunia,Dunkin Donuts,Eau Du Rose,Emirgan Sutis,Espression Lavazza,Evviva,Farggi,Farggi,Flavours,Flor Gelatto,Forknife,Fruitella,Fruity Fruits,Fusion Restaurant,Gelato Rosa,German Doner Kabab,Gerry's grill,Ginger Club,Gioia,Golden Dragon,GRK Fresh Greek,Gymkhana,Haghia Sophia,Hive,Huntersroom &  Grill,Hwang,Il Cafe di Roma,Isla,Java U,Jazz Up,Johnny Rockets,Karaki,Kebabs & Kurries,L'atelier du chocolat,L'auberge,L'espresso,La Brushchetta Gharaffa,La Casa 28,La Spiga,Lava,Lebanese Village Restaurant,Lenotre,Lets Popcorn,Lina's Paris,Liquidity,Lobby Cafe,Lobby Lounge,Lobby lounge,Lord of the Wings,Luxe,Manhattan Fish Market,Marble Slab,Market,Mawasem,Max,Megapolis,Megu,Misk,Mix Lounge,Mokarabia,Moon deck,Mr. Doner Kebab,Nando's,Nektar pool Bar,Nestle toll house,Nobles Restaurant,Ocean Basket,Olive Oil,Olives,Opal,Orient Pearl,Outback Steakhouse,Paloma,Papermoon,Patagonia,Pizza Cone,Poori & Karak,Popcorn Girl,Prime,Pure,Qahwati,Quiznos,Remman Cafe,Rodizio,Rogers diner,Romano's Macaroni & Grill,Royal Indian,Saba W Masa,Sabai Thai,Salad Boutique,Salads and More,Salsa,Sandwich Factory,Sara B Lounge,Savor,Sbarro,Seasonal Tastes,Seasons Restaurant,Signature By Sanjeev Kapoor,So Jenni Cafe,Spice Market,Spice Republic,Sport Cafe,Stack Burger,Star Kebab,Strata,Taj Rasoi,Tamarind,The Atrium,The Coffee Bean & Tea Leaf,The Noodle House,The Rice Room,The Square,The Sushi Station,The View,Tim Hortons,Trader Vics,Tuile Cafe,Uno Pizzaeria & Grill,Urban Jazz,Victoria Tea Lounge,Vine,W Cafe,Wafflemeister,Wafi Gourmet,Wahm,Wazzup Hotdog,West End Cafe,Wok of fame,Wrap It,Ya-hala,Zaatar w Zeit,Zafran,Zafran Cafe,Zafran Dining Experience,Zawaya";
+      var itemsArray = itemsCSV.split(',');
+      $('.search-query').on('input', function (e) {
+        var searchTerm = $('.search-query').val();
+        var results = itemsArray.filter(function (elem) {
+          return elem.toLowerCase().indexOf(searchTerm) > -1;
+        });
+
+        for (var i = 0; i < results.length; i++) {
+          results[i] = '<span class="gaga">' + results[i] + '</span>';
+        }
+        $("#results").html(results);
+      });
+    });
+  </script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+
+    .row.content {
+      height: 450px
+    }
+
+    /* Set gray background color and 100% height */
+
+    #removeClass,
+    #myNavbar,
+    #replaceWhenSmalls {
+      list-style-type: none;
+    }
+
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+    /* Set black background color, white text and some padding */
+
+    footer {
+      background-color: #fff;
+      color: #000;
+      padding: 15px 0;
+      padding: 0 !important;
+      padding-top: 20px !important;
+      border-top: 1px solid black;
+      font-size: smaller;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+
+    @media screen and (max-width: 767px) {
+      .navbar {
+        margin-bottom: 15px;
+      }
+
+      .col-sm-10,
+      .col-sm-2 {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
+
+      #results {
+        height: 170px !important;
+      }
+
+      .middle {
+        margin-bottom: 15px;
+      }
+
+      footer .navbar-header {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 225px;
+        height: 50px;
+      }
+
+      #replaceWhenSmall {
+        margin-bottom: 30px;
+      }
+
+      #myNavbar ul {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+      }
+
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+
+      .row.content {
+        height: auto;
+      }
+
+      .navbar-header {
+        height: 100px;
+      }
+
+      .navbar-brand {
+        width: 100%;
+      }
+
+      #myNavbar h1 {
+        font-size: 25px;
+      }
+
+      .navbar .navbar-header img {
+        margin-left: auto;
+        margin-top: 10px;
+        margin-right: auto;
+        height: 50px;
+      }
+
+      #replaceWhenSmall p {
+        display: inline;
+        margin-right: 20px !important;
+      }
+
+      body {
+        margin: 20px;
+      }
+
+      .laza {
+        width: 100% !important;
+      }
+
+      #replaceWhenSmalls ul {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Zameel Custom CSS/ */
+
+    .sidenav-icon {
+      margin-right: 10px;
+    }
+
+    .navbar-default,
+    .sidenav {
+      background-color: #fff !important;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+
+    @media screen and (min-width: 1024px) {
+      body {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .paddingblt20 {
+      padding-top: 15px;
+    }
+
+    .gaga {
+      display: block;
+    }
+
+    .big-red {
+      font-size: 20px;
+      color: #dc052b;
+      font-weight: bold;
+    }
+
+    .float-left {
+      float: left;
+      margin-right: 10px;
+    }
+
+    #myNavbar {
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .navbar {
+      border: none !important;
+      padding-bottom: 20px;
+    }
+
+    .bordermarg-btm {
+      border-bottom: 1px solid black;
+      margin-bottom: 15px;
+    }
+
+    .col-sm-10 {
+      padding-right: 0;
+    }
+
+    .sidenav,
+    .navbar .container-fluid {
+      padding-left: 0;
+    }
+
+    .navbar {
+      padding-bottom: 0;
+    }
+
+    .middle {
+      height: 521px;
+      overflow: hidden;
+    }
+
+    .search-query {
+      width: 100%;
+      border: 1px solid black;
+      font-size: 10px;
+      height: 25px;
+      padding: 10px;
+      padding-right: 30px;
+      border-radius: 25px;
+      background: url(search-light.png) no-repeat scroll 150px 7px;
+      background-size: 10px;
+    }
+
+    .search-query::-webkit-input-placeholder {
+      font-size: 10px;
+    }
+
+    .laza {
+      margin-left: auto;
+      margin-right: auto;
+      width: 175px;
+    }
+
+    .navbar-collapse.collapse {
+      display: block !important;
+    }
+
+    .navbar-nav>li,
+    .navbar-nav {
+      float: left !important;
+    }
+
+    .navbar-nav.navbar-right:last-child {
+      margin-right: -15px !important;
+    }
+
+    .navbar-right {
+      float: right!important;
+    }
+
+    .navbar-brand img {
+      height: 78px;
+    }
+  </style>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="logo-text.png" alt="My Book Logo Text" style="margin-top: 10px;">
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul id="removeClass" class="nav navbar-nav navbar-right">
+          <li>
+            <h1>LIST OF
+              <br>MERCHANTS</h1>
+            <img src="dots.png" alt="Dott" width="85px">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="middle container-fluid">
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+        <div class="bordermarg-btm">
+          <p>
+            <img src="cat.png" alt="Categories Icon" height="15px" class="sidenav-icon">CATEGORIES
+          </p>
+        </div>
+        <div id="replaceWhenSmall">
+          <p>
+            <a href="#" id="food-btn" class="link-btn">
+              <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a>
+          </p>
+          <p>
+            <a href="#" id="leis-btn" class="link-btn">
+              <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a>
+          </p>
+          <p>
+            <a href="#" id="heal-btn" class="link-btn">
+              <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a>
+          </p>
+          <p>
+            <a href="#" id="beau-btn" class="link-btn">
+              <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a>
+          </p>
+          <p>
+            <a href="#" id="svc-btn" class="link-btn">
+              <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a>
+          </p>
+          <p>
+            <a href="#" id="stc-btn" class="link-btn">
+              <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a>
+          </p>
+        </div>
+        <div class="bordermarg-btm" style="margin-top: 25px;">
+          <p>
+            <img src="search-dark.png" alt="Categories Icon" height="15px" class="sidenav-icon">SEARCH A MERCHANT
+          </p>
+        </div>
+        <div class="laza">
+          <input type="text" class="search-query" placeholder="Merchant Name">
+        </div>
+      </div>
+      <div class="col-sm-10">
+        <div class="bordermarg-btm paddingblt20">
+          <p>
+            <img src="merch.png" alt="Merchants Icon" height="15px" class="sidenav-icon">MERCHANTS
+          </p>
+        </div>
+        <div id="results" style="overflow-y: scroll;height: 460px;">
+          <div class="maaga" id="food">
+            <span class="gaga">Taj Rasoi</span>
+            <span class="gaga">Sbarro</span>
+            <span class="gaga">Seasonal Tastes</span>
+            <span class="gaga">Seasons Restaurant</span>
+            <span class="gaga">Signature By Sanjeev Kapoor</span>
+            <span class="gaga">So Jenni Cafe</span>
+            <span class="gaga">Spice Market</span>
+            <span class="gaga">Spice Republic</span>
+            <span class="gaga">Sport Cafe</span>
+            <span class="gaga">Stack Burger</span>
+            <span class="gaga">Star Kebab</span>
+            <span class="gaga">Strata</span>
+            <span class="gaga">Taj Rasoi</span>
+            <span class="gaga">Tamarind</span>
+            <span class="gaga">The Atrium</span>
+            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
+            <span class="gaga">The Noodle House</span>
+            <span class="gaga">The Rice Room</span>
+            <span class="gaga">The Square</span>
+            <span class="gaga">The Sushi Station</span>
+            <span class="gaga">The View</span>
+            <span class="gaga">Tim Hortons</span>
+            <span class="gaga">Trader Vics</span>
+            <span class="gaga">Tuile Cafe</span>
+            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
+            <span class="gaga">Urban Jazz</span>
+            <span class="gaga">Victoria Tea Lounge</span>
+            <span class="gaga">Vine</span>
+            <span class="gaga">W Cafe</span>
+            <span class="gaga">Wafflemeister</span>
+            <span class="gaga">Wafi Gourmet</span>
+            <span class="gaga">Wahm</span>
+            <span class="gaga">Wazzup Hotdog</span>
+            <span class="gaga">West End Cafe</span>
+            <span class="gaga">Wok of fame</span>
+            <span class="gaga">Wrap It</span>
+            <span class="gaga">Ya-hala</span>
+            <span class="gaga">Zaatar w Zeit</span>
+            <span class="gaga">Zafran</span>
+            <span class="gaga">Zafran Cafe</span>
+            <span class="gaga">Zafran Dining Experience</span>
+            <span class="gaga">Zawaya</span>
+          </div>
+          <div class="maaga" id="leis">
+            <span class="gaga">Abou Shawarma</span>
+            <span class="gaga">Aceite</span>
+            <span class="gaga">Adanali Hasan Kolcuoglu Qatar</span>
+            <span class="gaga">Agora</span>
+            <span class="gaga">Al Bait Al Kuwaiti</span>
+            <span class="gaga">Al Bisana</span>
+            <span class="gaga">Al Dheyafa</span>
+            <span class="gaga">Al Dirwandi</span>
+            <span class="gaga">Al Huda Bakery &amp; Snacks</span>
+            <span class="gaga">Al Huda Express</span>
+            <span class="gaga">Al Huda Restaurant</span>
+            <span class="gaga">Al Kut Cafe</span>
+            <span class="gaga">Al Maha</span>
+            <span class="gaga">Al Mayass</span>
+            <span class="gaga">Al Tabkha</span>
+            <span class="gaga">Al Thouraya Restaurant</span>
+            <span class="gaga">Alison Nelson Chocolate Bar</span>
+            <span class="gaga">Angelina Paris</span>
+            <span class="gaga">Applebees</span>
+            <span class="gaga">Aquarius</span>
+            <span class="gaga">Aramede</span>
+            <span class="gaga">Arguelina Lounge</span>
+            <span class="gaga">Asayel Al Sham</span>
+            <span class="gaga">Asia Live</span>
+            <span class="gaga">Astor Grill</span>
+            <span class="gaga">Awtar</span>
+            <span class="gaga">Baba Ghanouj</span>
+            <span class="gaga">Baladna Mart</span>
+            <span class="gaga">Balmesan</span>
+            <span class="gaga">Baraha</span>
+            <span class="gaga">Barahat al wakra</span>
+            <span class="gaga">Baskin Robin´s</span>
+            <span class="gaga">Basta 23</span>
+            <span class="gaga">Baya</span>
+            <span class="gaga">Belgian Cafe</span>
+            <span class="gaga">Biella</span>
+            <span class="gaga">Biryani Hut</span>
+            <span class="gaga">Blue</span>
+            <span class="gaga">Bollywood Lounge &amp; Restaurant</span>
+            <span class="gaga">Boston´s</span>
+            <span class="gaga">Bread &amp; Bagels</span>
+            <span class="gaga">Brioche Doree</span>
+            <span class="gaga">Brisket &amp; Ribs</span>
+          </div>
+          <div class="maaga" id="heal">
+            <span class="gaga">Flavours</span>
+            <span class="gaga">Flor Gelatto</span>
+            <span class="gaga">Forknife</span>
+            <span class="gaga">Fruitella</span>
+            <span class="gaga">Fruity Fruits</span>
+            <span class="gaga">Fusion Restaurant</span>
+            <span class="gaga">Gelato Rosa</span>
+            <span class="gaga">German Doner Kabab</span>
+            <span class="gaga">Gerry´s grill</span>
+            <span class="gaga">Ginger Club</span>
+            <span class="gaga">Gioia</span>
+            <span class="gaga">Golden Dragon</span>
+            <span class="gaga">GRK Fresh Greek</span>
+            <span class="gaga">Gymkhana</span>
+            <span class="gaga">Haghia Sophia</span>
+            <span class="gaga">Hive</span>
+            <span class="gaga">Huntersroom &amp; Grill</span>
+            <span class="gaga">Hwang</span>
+            <span class="gaga">Il Cafe di Roma</span>
+            <span class="gaga">Isla</span>
+            <span class="gaga">Java U</span>
+            <span class="gaga">Jazz Up</span>
+            <span class="gaga">Johnny Rockets</span>
+            <span class="gaga">Karaki</span>
+            <span class="gaga">Kebabs &amp; Kurries</span>
+            <span class="gaga">L'atelier du chocolat</span>
+            <span class="gaga">L'auberge</span>
+            <span class="gaga">L’espresso</span>
+            <span class="gaga">La Brushchetta Gharaffa</span>
+            <span class="gaga">La Casa 28</span>
+            <span class="gaga">La Spiga</span>
+            <span class="gaga">Lava</span>
+            <span class="gaga">Lebanese Village Restaurant</span>
+            <span class="gaga">Lenotre</span>
+            <span class="gaga">Lets Popcorn</span>
+            <span class="gaga">Lina´s Paris</span>
+            <span class="gaga">Liquidity</span>
+            <span class="gaga">Lobby Cafe</span>
+            <span class="gaga">Lobby Lounge</span>
+            <span class="gaga">Lobby lounge</span>
+            <span class="gaga">Lord of the Wings</span>
+            <span class="gaga">Luxe</span>
+            <span class="gaga">Manhattan Fish Market</span>
+          </div>
+          <div class="maaga" id="beau">
+            <span class="gaga">Marble Slab</span>
+            <span class="gaga">Market</span>
+            <span class="gaga">Mawasem</span>
+            <span class="gaga">Max</span>
+            <span class="gaga">Megapolis</span>
+            <span class="gaga">Megu</span>
+            <span class="gaga">Misk</span>
+            <span class="gaga">Mix Lounge</span>
+            <span class="gaga">Mokarabia</span>
+            <span class="gaga">Moon deck</span>
+            <span class="gaga">Mr. Doner Kebab</span>
+            <span class="gaga">Nando´s</span>
+            <span class="gaga">Nektar pool Bar</span>
+            <span class="gaga">Nestle toll house</span>
+            <span class="gaga">Nobles Restaurant</span>
+            <span class="gaga">Ocean Basket</span>
+            <span class="gaga">Olive Oil</span>
+            <span class="gaga">Olives</span>
+            <span class="gaga">Opal</span>
+            <span class="gaga">Orient Pearl</span>
+            <span class="gaga">Outback Steakhouse</span>
+            <span class="gaga">Paloma</span>
+            <span class="gaga">Papermoon</span>
+            <span class="gaga">Patagonia</span>
+            <span class="gaga">Pizza Cone</span>
+            <span class="gaga">Poori &amp; Karak</span>
+            <span class="gaga">Popcorn Girl</span>
+            <span class="gaga">Prime</span>
+            <span class="gaga">Pure</span>
+            <span class="gaga">Qahwati</span>
+            <span class="gaga">Quiznos</span>
+            <span class="gaga">Remman Cafe</span>
+            <span class="gaga">Rodizio</span>
+            <span class="gaga">Rogers diner</span>
+            <span class="gaga">Romano´s Macaroni &amp; Grill</span>
+            <span class="gaga">Royal Indian</span>
+            <span class="gaga">Saba W Masa</span>
+            <span class="gaga">Sabai Thai</span>
+            <span class="gaga">Salad Boutique</span>
+            <span class="gaga">Salads and More</span>
+            <span class="gaga">Salsa</span>
+            <span class="gaga">Sandwich Factory</span>
+            <span class="gaga">Sara B Lounge</span>
+          </div>
+          <div class="maaga" id="svc">
+            <span class="gaga">Savor</span>
+            <span class="gaga">Sbarro</span>
+            <span class="gaga">Seasonal Tastes</span>
+            <span class="gaga">Seasons Restaurant</span>
+            <span class="gaga">Signature By Sanjeev Kapoor</span>
+            <span class="gaga">So Jenni Cafe</span>
+            <span class="gaga">Spice Market</span>
+            <span class="gaga">Spice Republic</span>
+            <span class="gaga">Sport Cafe</span>
+            <span class="gaga">Stack Burger</span>
+            <span class="gaga">Star Kebab</span>
+            <span class="gaga">Strata</span>
+            <span class="gaga">Taj Rasoi</span>
+            <span class="gaga">Tamarind</span>
+            <span class="gaga">The Atrium</span>
+            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
+            <span class="gaga">The Noodle House</span>
+            <span class="gaga">The Rice Room</span>
+            <span class="gaga">The Square</span>
+            <span class="gaga">The Sushi Station</span>
+            <span class="gaga">The View</span>
+            <span class="gaga">Tim Hortons</span>
+            <span class="gaga">Trader Vics</span>
+            <span class="gaga">Tuile Cafe</span>
+            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
+            <span class="gaga">Urban Jazz</span>
+            <span class="gaga">Victoria Tea Lounge</span>
+            <span class="gaga">Vine</span>
+            <span class="gaga">W Cafe</span>
+            <span class="gaga">Wafflemeister</span>
+            <span class="gaga">Wafi Gourmet</span>
+            <span class="gaga">Wahm</span>
+            <span class="gaga">Wazzup Hotdog</span>
+            <span class="gaga">West End Cafe</span>
+            <span class="gaga">Wok of fame</span>
+            <span class="gaga">Wrap It</span>
+            <span class="gaga">Ya-hala</span>
+            <span class="gaga">Zaatar w Zeit</span>
+            <span class="gaga">Zafran</span>
+            <span class="gaga">Zafran Cafe</span>
+            <span class="gaga">Zafran Dining Experience</span>
+            <span class="gaga">Zawaya</span>
+          </div>
+          <div class="maaga" id="stc">
+            <span class="gaga">Tuile Cafe</span>
+            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
+            <span class="gaga">Urban Jazz</span>
+            <span class="gaga">Victoria Tea Lounge</span>
+            <span class="gaga">Vine</span>
+            <span class="gaga">W Cafe</span>
+            <span class="gaga">Wafflemeister</span>
+            <span class="gaga">Wafi Gourmet</span>
+            <span class="gaga">Wahm</span>
+            <span class="gaga">Wazzup Hotdog</span>
+            <span class="gaga">West End Cafe</span>
+            <span class="gaga">Wok of fame</span>
+            <span class="gaga">Wrap It</span>
+            <span class="gaga">Ya-hala</span>
+            <span class="gaga">Zaatar w Zeit</span>
+            <span class="gaga">Zafran</span>
+            <span class="gaga">Zafran Cafe</span>
+            <span class="gaga">Zafran Dining Experience</span>
+            <span class="gaga">Zawaya</span>
+            <span class="gaga">Spice Republic</span>
+            <span class="gaga">Savor</span>
+            <span class="gaga">Sbarro</span>
+            <span class="gaga">Seasonal Tastes</span>
+            <span class="gaga">Seasons Restaurant</span>
+            <span class="gaga">Signature By Sanjeev Kapoor</span>
+            <span class="gaga">So Jenni Cafe</span>
+            <span class="gaga">Spice Market</span>
+            <span class="gaga">Sport Cafe</span>
+            <span class="gaga">Stack Burger</span>
+            <span class="gaga">Star Kebab</span>
+            <span class="gaga">Strata</span>
+            <span class="gaga">Taj Rasoi</span>
+            <span class="gaga">Tamarind</span>
+            <span class="gaga">The Atrium</span>
+            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
+            <span class="gaga">The Noodle House</span>
+            <span class="gaga">The Rice Room</span>
+            <span class="gaga">The Square</span>
+            <span class="gaga">The Sushi Station</span>
+            <span class="gaga">The View</span>
+            <span class="gaga">Tim Hortons</span>
+            <span class="gaga">Trader Vics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <footer>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="float-left" style="margin-right: 15px;">
+          <a class="" href="#">
+            <img src="logo.png" alt="My Book Logo" height="45px">
+          </a>
+        </div>
+        <div class="float-left">
+          <p>
+            Talk to Us
+            <br>
+            <span class="big-red">44814276</span>
+          </p>
+        </div>
+        <div class="float-left">
+          Follow Us
+          <br>
+          <div class="float-left">
+            <img src="fb.png" alt="Facebook Icon" height="20px">
+          </div>
+          <div class="float-left">
+            <img src="insta.png" alt="Instagram Icon" height="20px">
+          </div>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="replaceWhenSmalls">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p>
+              Copyright © 2017 My Book Qatar
+              <br> Retaj Building, 3rd Floor, Office #311, Al Sadd,
+              <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <img src="footline.png" alt="Footer Line Image" width="100%" height="10px">
+  </footer>
+
+</body>
+
+</html>
