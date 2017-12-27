@@ -24,13 +24,13 @@
         if (mq.matches) {
           $("#removeClass").addClass("nav navbar-nav navbar-right");
           $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
-          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <li> <p> Copyright © 2017 My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </li> </ul>');
+          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <li> <p> Copyright © <span class="currentYear">2016</span> My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </li> </ul>');
         } else {
           $("#removeClass").removeAttr('class');
           $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <br><br> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <br><br> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
-          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <p> Copyright © 2017 My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </ul>');
+          $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <p> Copyright © <span class="currentYear">2016</span> My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </ul>');
         }
-
+        $('.currentYear').text((new Date()).getFullYear());
       }
 
 
@@ -67,7 +67,7 @@
       var itemsCSV = "Abou Shawarma,Aceite,Adanali Hasan Kolcuoglu Qatar,Agora,Al Bait Al Kuwaiti,Al Bisana,Al Dheyafa,Al Dirwandi,Al Huda Bakery & Snacks,Al Huda Express,Al Huda Restaurant,Al Kut Cafe,Al Maha,Al Mayass,Al Tabkha,Al Thouraya Restaurant,Alison Nelson Chocolate Bar,Angelina Paris,Applebees,Aquarius,Aramede,Arguelina Lounge,Asayel Al Sham,Asia Live,Astor Grill,Awtar,Baba Ghanouj,Baladna Mart,Balmesan,Baraha,Barahat al wakra,Baskin Robin's,Basta 23,Baya,Belgian Cafe,Biella,Biryani Hut,Blue,Bollywood Lounge & Restaurant,Boston's,Bread & Bagels,Brioche Doree,Brisket & Ribs,Burger Gourmet,Burger King,Burj Al Hamam,California Tortilla,Camille's Ice cream,Caminito,Cappuccino Lounge,Caramel,Carisma,Carluccio's,Casa Paco,Castello Ristorante Italiano,Chi Zen,Chili's,Chilli's House,Choowy Goowy,Chopsticks,Cinnzeo,Cold Stone Creamery,Conowarma,Cool Cut,Cool de Sac,Copacabana,Coral,Corniche,Crepaway,Crepe & More,Crepe Delicious,Crossroads Kitchen,Cucina,Damasca One,Debs w reman,Diner Station,Dippingo,Domino's Pizza,Dunia,Dunkin Donuts,Eau Du Rose,Emirgan Sutis,Espression Lavazza,Evviva,Farggi,Farggi,Flavours,Flor Gelatto,Forknife,Fruitella,Fruity Fruits,Fusion Restaurant,Gelato Rosa,German Doner Kabab,Gerry's grill,Ginger Club,Gioia,Golden Dragon,GRK Fresh Greek,Gymkhana,Haghia Sophia,Hive,Huntersroom &  Grill,Hwang,Il Cafe di Roma,Isla,Java U,Jazz Up,Johnny Rockets,Karaki,Kebabs & Kurries,L'atelier du chocolat,L'auberge,L'espresso,La Brushchetta Gharaffa,La Casa 28,La Spiga,Lava,Lebanese Village Restaurant,Lenotre,Lets Popcorn,Lina's Paris,Liquidity,Lobby Cafe,Lobby Lounge,Lobby lounge,Lord of the Wings,Luxe,Manhattan Fish Market,Marble Slab,Market,Mawasem,Max,Megapolis,Megu,Misk,Mix Lounge,Mokarabia,Moon deck,Mr. Doner Kebab,Nando's,Nektar pool Bar,Nestle toll house,Nobles Restaurant,Ocean Basket,Olive Oil,Olives,Opal,Orient Pearl,Outback Steakhouse,Paloma,Papermoon,Patagonia,Pizza Cone,Poori & Karak,Popcorn Girl,Prime,Pure,Qahwati,Quiznos,Remman Cafe,Rodizio,Rogers diner,Romano's Macaroni & Grill,Royal Indian,Saba W Masa,Sabai Thai,Salad Boutique,Salads and More,Salsa,Sandwich Factory,Sara B Lounge,Savor,Sbarro,Seasonal Tastes,Seasons Restaurant,Signature By Sanjeev Kapoor,So Jenni Cafe,Spice Market,Spice Republic,Sport Cafe,Stack Burger,Star Kebab,Strata,Taj Rasoi,Tamarind,The Atrium,The Coffee Bean & Tea Leaf,The Noodle House,The Rice Room,The Square,The Sushi Station,The View,Tim Hortons,Trader Vics,Tuile Cafe,Uno Pizzaeria & Grill,Urban Jazz,Victoria Tea Lounge,Vine,W Cafe,Wafflemeister,Wafi Gourmet,Wahm,Wazzup Hotdog,West End Cafe,Wok of fame,Wrap It,Ya-hala,Zaatar w Zeit,Zafran,Zafran Cafe,Zafran Dining Experience,Zawaya";
       var itemsArray = itemsCSV.split(',');
       $('.search-query').on('input', function (e) {
-        var searchTerm = $('.search-query').val();
+        var searchTerm = $('.search-query').val().toLowerCase();
         var results = itemsArray.filter(function (elem) {
           return elem.toLowerCase().indexOf(searchTerm) > -1;
         });
@@ -258,6 +258,7 @@
 
     h1 {
       font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
     }
 
     .navbar {
@@ -328,7 +329,7 @@
     }
 
     .navbar-brand img {
-      height: 78px;
+      width: 175px;
     }
   </style>
 
@@ -351,7 +352,7 @@
           <li>
             <h1>LIST OF
               <br>MERCHANTS</h1>
-            <img src="dots.png" alt="Dott" width="85px">
+            <!-- <img src="dots.png" alt="Dott" width="85px"> -->
           </li>
         </ul>
       </div>
@@ -710,7 +711,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <p>
-              Copyright © 2017 My Book Qatar
+              Copyright © <script>document.write(new Date().getFullYear())</script> My Book Qatar
               <br> Retaj Building, 3rd Floor, Office #311, Al Sadd,
               <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com
             </p>
