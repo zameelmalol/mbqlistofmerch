@@ -122,6 +122,12 @@
     /* On small screens, set height to 'auto' for sidenav and grid */
 
     @media screen and (max-width: 767px) {
+      .search-query {
+        width: 100%;
+        background: url(search-light.png) no-repeat scroll 310px 7px !important;
+        background-size: 10px !important;
+      }
+
       .navbar {
         margin-bottom: 15px;
       }
@@ -184,7 +190,6 @@
         margin-left: auto;
         margin-top: 10px;
         margin-right: auto;
-        height: 50px;
       }
 
       #replaceWhenSmall p {
@@ -711,7 +716,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li>
             <p>
-              Copyright © <script>document.write(new Date().getFullYear())</script> My Book Qatar
+              Copyright ©
+              <script>document.write(new Date().getFullYear())</script> My Book Qatar
               <br> Retaj Building, 3rd Floor, Office #311, Al Sadd,
               <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com
             </p>
