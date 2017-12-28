@@ -11,6 +11,21 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
     $(document).ready(function () {
+
+      $('#results').find('.accordion-toggle').click(function () {
+        if ($(this).find("img").attr("src") === "closed.png") {
+          $(this).find("img").attr("src", 'opened.png');
+        } else {
+          $(this).find("img").attr("src", 'closed.png');
+        }
+
+        //Expand or collapse this panel
+        $(this).next().slideToggle('fast');
+
+        //Hide the other panels
+        $(".accordion-content").not($(this).next()).slideUp('fast');
+
+      });
       const mq = window.matchMedia("(min-width: 767px)");
       // media query event handler
       if (matchMedia) {
@@ -32,7 +47,6 @@
         }
         $('.currentYear').text((new Date()).getFullYear());
       }
-
 
       $('.link-btn').click(function () {
         $('.search-query').val("");
@@ -80,6 +94,20 @@
     });
   </script>
   <style>
+    .accordion-toggle {
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .accordion-content {
+      display: none;
+      margin-bottom: 10px;
+    }
+
+    .accordion-content.default {
+      display: block;
+    }
+
     /* Remove the navbar's default margin-bottom and rounded borders */
 
     .navbar {
@@ -105,6 +133,11 @@
       padding-top: 15px;
       background-color: #f1f1f1;
       height: 100%;
+    }
+
+    .ruru {
+      font-size: 10px;
+      text-indent: 10px;
     }
 
     /* Set black background color, white text and some padding */
@@ -238,8 +271,10 @@
       padding-top: 15px;
     }
 
-    .gaga {
+    .gaga,
+    .ruru {
       display: block;
+      margin-bottom: 5px;
     }
 
     .big-red {
@@ -347,7 +382,7 @@
 
     footer {
       height: 9vh;
-    } 
+    }
   </style>
 
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -425,271 +460,1801 @@
         </div>
         <div id="results" style="overflow-y: scroll;height: 460px;">
           <div class="maaga" id="food">
-            <span class="gaga">Taj Rasoi</span>
-            <span class="gaga">Sbarro</span>
-            <span class="gaga">Seasonal Tastes</span>
-            <span class="gaga">Seasons Restaurant</span>
-            <span class="gaga">Signature By Sanjeev Kapoor</span>
-            <span class="gaga">So Jenni Cafe</span>
-            <span class="gaga">Spice Market</span>
-            <span class="gaga">Spice Republic</span>
-            <span class="gaga">Sport Cafe</span>
-            <span class="gaga">Stack Burger</span>
-            <span class="gaga">Star Kebab</span>
-            <span class="gaga">Strata</span>
-            <span class="gaga">Taj Rasoi</span>
-            <span class="gaga">Tamarind</span>
-            <span class="gaga">The Atrium</span>
-            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
-            <span class="gaga">The Noodle House</span>
-            <span class="gaga">The Rice Room</span>
-            <span class="gaga">The Square</span>
-            <span class="gaga">The Sushi Station</span>
-            <span class="gaga">The View</span>
-            <span class="gaga">Tim Hortons</span>
-            <span class="gaga">Trader Vics</span>
-            <span class="gaga">Tuile Cafe</span>
-            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
-            <span class="gaga">Urban Jazz</span>
-            <span class="gaga">Victoria Tea Lounge</span>
-            <span class="gaga">Vine</span>
-            <span class="gaga">W Cafe</span>
-            <span class="gaga">Wafflemeister</span>
-            <span class="gaga">Wafi Gourmet</span>
-            <span class="gaga">Wahm</span>
-            <span class="gaga">Wazzup Hotdog</span>
-            <span class="gaga">West End Cafe</span>
-            <span class="gaga">Wok of fame</span>
-            <span class="gaga">Wrap It</span>
-            <span class="gaga">Ya-hala</span>
-            <span class="gaga">Zaatar w Zeit</span>
-            <span class="gaga">Zafran</span>
-            <span class="gaga">Zafran Cafe</span>
-            <span class="gaga">Zafran Dining Experience</span>
-            <span class="gaga">Zawaya</span>
+            <span class="accordion-toggle gaga">Taj Rasoi
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sbarro
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasonal Tastes
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasons Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Signature By Sanjeev Kapoor
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">So Jenni Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Market
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Republic
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sport Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Stack Burger
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Star Kebab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Strata
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Taj Rasoi
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tamarind
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Atrium
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Coffee Bean &amp; Tea Leaf
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Noodle House
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Rice Room
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Square
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Sushi Station
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The View
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tim Hortons
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Trader Vics
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tuile Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Uno Pizzaeria &amp; Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Urban Jazz
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Victoria Tea Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Vine
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">W Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafflemeister
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafi Gourmet
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wahm
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wazzup Hotdog
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">West End Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wok of fame
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wrap It
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Ya-hala
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zaatar w Zeit
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Dining Experience
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zawaya
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
           <div class="maaga" id="leis">
-            <span class="gaga">Abou Shawarma</span>
-            <span class="gaga">Aceite</span>
-            <span class="gaga">Adanali Hasan Kolcuoglu Qatar</span>
-            <span class="gaga">Agora</span>
-            <span class="gaga">Al Bait Al Kuwaiti</span>
-            <span class="gaga">Al Bisana</span>
-            <span class="gaga">Al Dheyafa</span>
-            <span class="gaga">Al Dirwandi</span>
-            <span class="gaga">Al Huda Bakery &amp; Snacks</span>
-            <span class="gaga">Al Huda Express</span>
-            <span class="gaga">Al Huda Restaurant</span>
-            <span class="gaga">Al Kut Cafe</span>
-            <span class="gaga">Al Maha</span>
-            <span class="gaga">Al Mayass</span>
-            <span class="gaga">Al Tabkha</span>
-            <span class="gaga">Al Thouraya Restaurant</span>
-            <span class="gaga">Alison Nelson Chocolate Bar</span>
-            <span class="gaga">Angelina Paris</span>
-            <span class="gaga">Applebees</span>
-            <span class="gaga">Aquarius</span>
-            <span class="gaga">Aramede</span>
-            <span class="gaga">Arguelina Lounge</span>
-            <span class="gaga">Asayel Al Sham</span>
-            <span class="gaga">Asia Live</span>
-            <span class="gaga">Astor Grill</span>
-            <span class="gaga">Awtar</span>
-            <span class="gaga">Baba Ghanouj</span>
-            <span class="gaga">Baladna Mart</span>
-            <span class="gaga">Balmesan</span>
-            <span class="gaga">Baraha</span>
-            <span class="gaga">Barahat al wakra</span>
-            <span class="gaga">Baskin Robin´s</span>
-            <span class="gaga">Basta 23</span>
-            <span class="gaga">Baya</span>
-            <span class="gaga">Belgian Cafe</span>
-            <span class="gaga">Biella</span>
-            <span class="gaga">Biryani Hut</span>
-            <span class="gaga">Blue</span>
-            <span class="gaga">Bollywood Lounge &amp; Restaurant</span>
-            <span class="gaga">Boston´s</span>
-            <span class="gaga">Bread &amp; Bagels</span>
-            <span class="gaga">Brioche Doree</span>
-            <span class="gaga">Brisket &amp; Ribs</span>
+            <span class="accordion-toggle gaga">Abou Shawarma
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Aceite
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Adanali Hasan Kolcuoglu Qatar
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Agora
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Bait Al Kuwaiti
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Bisana
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Dheyafa
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Dirwandi
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Huda Bakery &amp; Snacks
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Huda Express
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Huda Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Kut Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Maha
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Mayass
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Tabkha
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Al Thouraya Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Alison Nelson Chocolate Bar
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Angelina Paris
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Applebees
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Aquarius
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Aramede
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Arguelina Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Asayel Al Sham
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Asia Live
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Astor Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Awtar
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Baba Ghanouj
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Baladna Mart
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Balmesan
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Baraha
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Barahat al wakra
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Baskin Robin´s
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Basta 23
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Baya
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Belgian Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Biella
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Biryani Hut
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Blue
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Bollywood Lounge &amp; Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Boston´s
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Bread &amp; Bagels
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Brioche Doree
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Brisket &amp; Ribs
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
           <div class="maaga" id="heal">
-            <span class="gaga">Flavours</span>
-            <span class="gaga">Flor Gelatto</span>
-            <span class="gaga">Forknife</span>
-            <span class="gaga">Fruitella</span>
-            <span class="gaga">Fruity Fruits</span>
-            <span class="gaga">Fusion Restaurant</span>
-            <span class="gaga">Gelato Rosa</span>
-            <span class="gaga">German Doner Kabab</span>
-            <span class="gaga">Gerry´s grill</span>
-            <span class="gaga">Ginger Club</span>
-            <span class="gaga">Gioia</span>
-            <span class="gaga">Golden Dragon</span>
-            <span class="gaga">GRK Fresh Greek</span>
-            <span class="gaga">Gymkhana</span>
-            <span class="gaga">Haghia Sophia</span>
-            <span class="gaga">Hive</span>
-            <span class="gaga">Huntersroom &amp; Grill</span>
-            <span class="gaga">Hwang</span>
-            <span class="gaga">Il Cafe di Roma</span>
-            <span class="gaga">Isla</span>
-            <span class="gaga">Java U</span>
-            <span class="gaga">Jazz Up</span>
-            <span class="gaga">Johnny Rockets</span>
-            <span class="gaga">Karaki</span>
-            <span class="gaga">Kebabs &amp; Kurries</span>
-            <span class="gaga">L'atelier du chocolat</span>
-            <span class="gaga">L'auberge</span>
-            <span class="gaga">L’espresso</span>
-            <span class="gaga">La Brushchetta Gharaffa</span>
-            <span class="gaga">La Casa 28</span>
-            <span class="gaga">La Spiga</span>
-            <span class="gaga">Lava</span>
-            <span class="gaga">Lebanese Village Restaurant</span>
-            <span class="gaga">Lenotre</span>
-            <span class="gaga">Lets Popcorn</span>
-            <span class="gaga">Lina´s Paris</span>
-            <span class="gaga">Liquidity</span>
-            <span class="gaga">Lobby Cafe</span>
-            <span class="gaga">Lobby Lounge</span>
-            <span class="gaga">Lobby lounge</span>
-            <span class="gaga">Lord of the Wings</span>
-            <span class="gaga">Luxe</span>
-            <span class="gaga">Manhattan Fish Market</span>
+            <span class="accordion-toggle gaga">Flavours
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Flor Gelatto
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Forknife
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Fruitella
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Fruity Fruits
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Fusion Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Gelato Rosa
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">German Doner Kabab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Gerry´s grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Ginger Club
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Gioia
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Golden Dragon
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">GRK Fresh Greek
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Gymkhana
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Haghia Sophia
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Hive
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Huntersroom &amp; Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Hwang
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Il Cafe di Roma
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Isla
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Java U
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Jazz Up
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Johnny Rockets
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Karaki
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Kebabs &amp; Kurries
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">L'atelier du chocolat
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">L'auberge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">L’espresso
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">La Brushchetta Gharaffa
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">La Casa 28
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">La Spiga
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lava
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lebanese Village Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lenotre
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lets Popcorn
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lina´s Paris
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Liquidity
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lobby Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lobby Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lobby lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Lord of the Wings
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Luxe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Manhattan Fish Market
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
           <div class="maaga" id="beau">
-            <span class="gaga">Marble Slab</span>
-            <span class="gaga">Market</span>
-            <span class="gaga">Mawasem</span>
-            <span class="gaga">Max</span>
-            <span class="gaga">Megapolis</span>
-            <span class="gaga">Megu</span>
-            <span class="gaga">Misk</span>
-            <span class="gaga">Mix Lounge</span>
-            <span class="gaga">Mokarabia</span>
-            <span class="gaga">Moon deck</span>
-            <span class="gaga">Mr. Doner Kebab</span>
-            <span class="gaga">Nando´s</span>
-            <span class="gaga">Nektar pool Bar</span>
-            <span class="gaga">Nestle toll house</span>
-            <span class="gaga">Nobles Restaurant</span>
-            <span class="gaga">Ocean Basket</span>
-            <span class="gaga">Olive Oil</span>
-            <span class="gaga">Olives</span>
-            <span class="gaga">Opal</span>
-            <span class="gaga">Orient Pearl</span>
-            <span class="gaga">Outback Steakhouse</span>
-            <span class="gaga">Paloma</span>
-            <span class="gaga">Papermoon</span>
-            <span class="gaga">Patagonia</span>
-            <span class="gaga">Pizza Cone</span>
-            <span class="gaga">Poori &amp; Karak</span>
-            <span class="gaga">Popcorn Girl</span>
-            <span class="gaga">Prime</span>
-            <span class="gaga">Pure</span>
-            <span class="gaga">Qahwati</span>
-            <span class="gaga">Quiznos</span>
-            <span class="gaga">Remman Cafe</span>
-            <span class="gaga">Rodizio</span>
-            <span class="gaga">Rogers diner</span>
-            <span class="gaga">Romano´s Macaroni &amp; Grill</span>
-            <span class="gaga">Royal Indian</span>
-            <span class="gaga">Saba W Masa</span>
-            <span class="gaga">Sabai Thai</span>
-            <span class="gaga">Salad Boutique</span>
-            <span class="gaga">Salads and More</span>
-            <span class="gaga">Salsa</span>
-            <span class="gaga">Sandwich Factory</span>
-            <span class="gaga">Sara B Lounge</span>
+            <span class="accordion-toggle gaga">Marble Slab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Market
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Mawasem
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Max
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Megapolis
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Megu
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Misk
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Mix Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Mokarabia
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Moon deck
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Mr. Doner Kebab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Nando´s
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Nektar pool Bar
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Nestle toll house
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Nobles Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Ocean Basket
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Olive Oil
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Olives
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Opal
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Orient Pearl
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Outback Steakhouse
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Paloma
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Papermoon
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Patagonia
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Pizza Cone
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Poori &amp; Karak
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Popcorn Girl
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Prime
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Pure
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Qahwati
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Quiznos
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Remman Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Rodizio
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Rogers diner
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Romano´s Macaroni &amp; Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Royal Indian
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Saba W Masa
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sabai Thai
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Salad Boutique
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Salads and More
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Salsa
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sandwich Factory
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sara B Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
           <div class="maaga" id="svc">
-            <span class="gaga">Savor</span>
-            <span class="gaga">Sbarro</span>
-            <span class="gaga">Seasonal Tastes</span>
-            <span class="gaga">Seasons Restaurant</span>
-            <span class="gaga">Signature By Sanjeev Kapoor</span>
-            <span class="gaga">So Jenni Cafe</span>
-            <span class="gaga">Spice Market</span>
-            <span class="gaga">Spice Republic</span>
-            <span class="gaga">Sport Cafe</span>
-            <span class="gaga">Stack Burger</span>
-            <span class="gaga">Star Kebab</span>
-            <span class="gaga">Strata</span>
-            <span class="gaga">Taj Rasoi</span>
-            <span class="gaga">Tamarind</span>
-            <span class="gaga">The Atrium</span>
-            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
-            <span class="gaga">The Noodle House</span>
-            <span class="gaga">The Rice Room</span>
-            <span class="gaga">The Square</span>
-            <span class="gaga">The Sushi Station</span>
-            <span class="gaga">The View</span>
-            <span class="gaga">Tim Hortons</span>
-            <span class="gaga">Trader Vics</span>
-            <span class="gaga">Tuile Cafe</span>
-            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
-            <span class="gaga">Urban Jazz</span>
-            <span class="gaga">Victoria Tea Lounge</span>
-            <span class="gaga">Vine</span>
-            <span class="gaga">W Cafe</span>
-            <span class="gaga">Wafflemeister</span>
-            <span class="gaga">Wafi Gourmet</span>
-            <span class="gaga">Wahm</span>
-            <span class="gaga">Wazzup Hotdog</span>
-            <span class="gaga">West End Cafe</span>
-            <span class="gaga">Wok of fame</span>
-            <span class="gaga">Wrap It</span>
-            <span class="gaga">Ya-hala</span>
-            <span class="gaga">Zaatar w Zeit</span>
-            <span class="gaga">Zafran</span>
-            <span class="gaga">Zafran Cafe</span>
-            <span class="gaga">Zafran Dining Experience</span>
-            <span class="gaga">Zawaya</span>
+            <span class="accordion-toggle gaga">Savor
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sbarro
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasonal Tastes
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasons Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Signature By Sanjeev Kapoor
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">So Jenni Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Market
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Republic
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sport Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Stack Burger
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Star Kebab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Strata
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Taj Rasoi
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tamarind
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Atrium
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Coffee Bean &amp; Tea Leaf
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Noodle House
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Rice Room
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Square
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Sushi Station
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The View
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tim Hortons
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Trader Vics
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tuile Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Uno Pizzaeria &amp; Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Urban Jazz
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Victoria Tea Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Vine
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">W Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafflemeister
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafi Gourmet
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wahm
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wazzup Hotdog
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">West End Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wok of fame
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wrap It
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Ya-hala
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zaatar w Zeit
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Dining Experience
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zawaya
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
           <div class="maaga" id="stc">
-            <span class="gaga">Tuile Cafe</span>
-            <span class="gaga">Uno Pizzaeria &amp; Grill</span>
-            <span class="gaga">Urban Jazz</span>
-            <span class="gaga">Victoria Tea Lounge</span>
-            <span class="gaga">Vine</span>
-            <span class="gaga">W Cafe</span>
-            <span class="gaga">Wafflemeister</span>
-            <span class="gaga">Wafi Gourmet</span>
-            <span class="gaga">Wahm</span>
-            <span class="gaga">Wazzup Hotdog</span>
-            <span class="gaga">West End Cafe</span>
-            <span class="gaga">Wok of fame</span>
-            <span class="gaga">Wrap It</span>
-            <span class="gaga">Ya-hala</span>
-            <span class="gaga">Zaatar w Zeit</span>
-            <span class="gaga">Zafran</span>
-            <span class="gaga">Zafran Cafe</span>
-            <span class="gaga">Zafran Dining Experience</span>
-            <span class="gaga">Zawaya</span>
-            <span class="gaga">Spice Republic</span>
-            <span class="gaga">Savor</span>
-            <span class="gaga">Sbarro</span>
-            <span class="gaga">Seasonal Tastes</span>
-            <span class="gaga">Seasons Restaurant</span>
-            <span class="gaga">Signature By Sanjeev Kapoor</span>
-            <span class="gaga">So Jenni Cafe</span>
-            <span class="gaga">Spice Market</span>
-            <span class="gaga">Sport Cafe</span>
-            <span class="gaga">Stack Burger</span>
-            <span class="gaga">Star Kebab</span>
-            <span class="gaga">Strata</span>
-            <span class="gaga">Taj Rasoi</span>
-            <span class="gaga">Tamarind</span>
-            <span class="gaga">The Atrium</span>
-            <span class="gaga">The Coffee Bean &amp; Tea Leaf</span>
-            <span class="gaga">The Noodle House</span>
-            <span class="gaga">The Rice Room</span>
-            <span class="gaga">The Square</span>
-            <span class="gaga">The Sushi Station</span>
-            <span class="gaga">The View</span>
-            <span class="gaga">Tim Hortons</span>
-            <span class="gaga">Trader Vics</span>
+            <span class="accordion-toggle gaga">Tuile Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Uno Pizzaeria &amp; Grill
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Urban Jazz
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Victoria Tea Lounge
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Vine
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">W Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafflemeister
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wafi Gourmet
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wahm
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wazzup Hotdog
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">West End Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wok of fame
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Wrap It
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Ya-hala
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zaatar w Zeit
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zafran Dining Experience
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Zawaya
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Republic
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Savor
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sbarro
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasonal Tastes
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Seasons Restaurant
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Signature By Sanjeev Kapoor
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">So Jenni Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Spice Market
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Sport Cafe
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Stack Burger
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Star Kebab
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Strata
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Taj Rasoi
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tamarind
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Atrium
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Coffee Bean &amp; Tea Leaf
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Noodle House
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Rice Room
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Square
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The Sushi Station
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">The View
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Tim Hortons
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
+            <span class="accordion-toggle gaga">Trader Vics
+              <img src="closed.png" alt="Closed Icon" height="4px" class="accordion-icon"> </span>
+            <div class="accordion-content">
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Course</span>
+              <span class="ruru">Main Menu Item</span>
+            </div>
           </div>
         </div>
       </div>
