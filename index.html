@@ -73,7 +73,7 @@
         dbRef.on('value', test, null);
         $('#results').find('.accordion-toggle').click(function () {
           $('#results .currentLink').removeClass('currentLink');
-          this.className = "accordion-toggle gaga currentLink"
+          this.className = "accordion-toggle gaga currentLink";
           if ($(this).find("img").attr("src") === "closed.png") {
             $(this).find("img").attr("src", 'opened.png');
           } else {
@@ -139,7 +139,7 @@
 
         $('.search-query').val("");
         $('#replaceWhenSmall .currentLink').removeClass('currentLink');
-        this.className = "link-btn currentLink"
+        this.className = "link-btn currentLink";
         if (this.id === "food-btn") {
           $('.maaga').hide();
           $('#food').show();
@@ -161,7 +161,7 @@
         }
         $('#results').find('.accordion-toggle').click(function () {
           $('#results .currentLink').removeClass('currentLink');
-          this.className = "accordion-toggle gaga currentLink"
+          this.className = "accordion-toggle gaga currentLink";
           if ($(this).find("img").attr("src") === "closed.png") {
             $(this).find("img").attr("src", 'opened.png');
           } else {
@@ -176,9 +176,6 @@
 
         });
       });
-
-      $('.maaga').hide();
-      $('#food').show();
     });
 
     // Initialize Firebase
@@ -226,11 +223,12 @@
       this.countP++;
 
       if (countP === 1) {
+        $('#food-btn').addClass("link-btn currentLink");
         $('.maaga').hide();
         $('#food').show();
         $('#results').find('.accordion-toggle').click(function () {
           $('#results .currentLink').removeClass('currentLink');
-          this.className = "accordion-toggle gaga currentLink"
+          this.className = "accordion-toggle gaga currentLink";
           if ($(this).find("img").attr("src") === "closed.png") {
             $(this).find("img").attr("src", 'opened.png');
           } else {
@@ -244,6 +242,7 @@
           $(".accordion-content").not($(this).next()).slideUp('fast');
 
         });
+        this.countP = 0;
       }
     }
 
