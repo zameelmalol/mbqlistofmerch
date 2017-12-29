@@ -69,6 +69,7 @@
       }
 
       $('.search-query').on('input', function (e) {
+        $('#replaceWhenSmall .currentLink').removeClass('currentLink');
         var dbRef = firebase.database().ref();
         dbRef.on('value', test, null);
         $('#results').find('.accordion-toggle').click(function () {
