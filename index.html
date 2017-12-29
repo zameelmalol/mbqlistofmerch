@@ -91,7 +91,6 @@
 
 
       $('.link-btn').click(function () {
-        $("#results").html("");
         var dbRef = firebase.database().ref().child('food');
         dbRef.on('value', listData, null);
 
@@ -198,22 +197,8 @@
     var dbRef = firebase.database().ref().child('food');
     dbRef.on('value', listData, null);
 
-    dbRef = firebase.database().ref().child('leis');
-    dbRef.on('value', listData, null);
-
-    dbRef = firebase.database().ref().child('heal');
-    dbRef.on('value', listData, null);
-
-    dbRef = firebase.database().ref().child('beau');
-    dbRef.on('value', listData, null);
-
-    dbRef = firebase.database().ref().child('svc');
-    dbRef.on('value', listData, null);
-
-    dbRef = firebase.database().ref().child('stc');
-    dbRef.on('value', listData, null);
-
     function listData(data) {
+      console.log("changed2");
       var listMerch = data.val()
       var keysMerch = Object.keys(listMerch);
 
@@ -237,10 +222,10 @@
         res += '</div>';
       }
       res += '</div>';
-      $("#results").append(res);
+      $("#results").html(res);
       this.countP++;
 
-      if (countP === 6) {
+      if (countP === 1) {
         $('.maaga').hide();
         $('#food').show();
         $('#results').find('.accordion-toggle').click(function () {
