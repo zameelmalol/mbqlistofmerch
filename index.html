@@ -48,7 +48,7 @@
             itemArray.push(listMerch[kM]);
           }
           var res = "";
-          res += '<div class="zaaga" id="' + obj[k] + '">';
+          res += '<div class="maaga" id="' + obj[k] + '">';
           for (var i = 0; i < itemArray.length; i++) {
             if (itemArray[i].name.toLowerCase().search($('.search-query').val().toLowerCase()) >= 0) {
               res += '<span class="accordion-toggle gaga"> ' + itemArray[i].name;
@@ -90,27 +90,27 @@
         });
       });
 
-
       $('.link-btn').click(function () {
-        var dbRef = firebase.database().ref().child('food');
-        dbRef.on('value', listData, null);
+        $("#results").html("");
+      var dbRef = firebase.database().ref().child('food');
+        dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('leis');
-        dbRef.on('value', listData, null);
+        dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('heal');
-        dbRef.on('value', listData, null);
+        dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('beau');
-        dbRef.on('value', listData, null);
+        dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('svc');
-        dbRef.on('value', listData, null);
+        dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('stc');
-        dbRef.on('value', listData, null);
+        dbRef.on('value', listData1, null);
 
-        function listData(data) {
+        function listData1(data) {
           var listMerch = data.val()
           var keysMerch = Object.keys(listMerch);
 
@@ -136,7 +136,6 @@
           res += '</div>';
           $("#results").append(res);
         }
-
 
         $('.search-query').val("");
         $('#replaceWhenSmall .currentLink').removeClass('currentLink');
@@ -174,7 +173,6 @@
 
           //Hide the other panels
           $(".accordion-content").not($(this).next()).slideUp('fast');
-
         });
       });
     });
@@ -196,7 +194,6 @@
     dbRef.on('value', listData, null);
 
     function listData(data) {
-      console.log("changed2");
       var listMerch = data.val()
       var keysMerch = Object.keys(listMerch);
 
