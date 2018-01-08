@@ -24,11 +24,11 @@
       function WidthChange(mq) {
         if (mq.matches) {
           $("#removeClass").addClass("nav navbar-nav navbar-right");
-          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
+          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="plea-btn" class="link-btn"> <img src="plea.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
           $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <li> <p> Copyright © <span class="currentYear">2016</span> My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </li> </ul>');
         } else {
           $("#removeClass").removeAttr('class');
-          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="leis-btn" class="link-btn"> <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <br><br> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <br><br> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
+          $("#replaceWhenSmall").html('<p> <a href="#" id="food-btn" class="link-btn"> <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a> </p> <p> <a href="#" id="plea-btn" class="link-btn"> <img src="plea.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a> </p> <br><br> <p> <a href="#" id="heal-btn" class="link-btn"> <img src="heal.png" alt="Health & Fitness Icon" height="25px" class="sidenav-icon">Health &amp; Fitness</a> </p> <p> <a href="#" id="beau-btn" class="link-btn"> <img src="beau.png" alt="Beauty & Spas Icon" height="25px" class="sidenav-icon">Beauty &amp; Spas</a> </p> <br><br> <p> <a href="#" id="svc-btn" class="link-btn"> <img src="svc.png" alt="Services Icon" height="25px" class="sidenav-icon">Services</a> </p> <p> <a href="#" id="stc-btn" class="link-btn"> <img src="stc.png" alt="Staycations Icon" height="25px" class="sidenav-icon">Staycations</a> </p>');
           $("#replaceWhenSmalls").html('<ul class="nav navbar-nav navbar-right"> <p> Copyright © <span class="currentYear">2016</span> My Book Qatar <br> Retaj Building, 3rd Floor, Office #311, Al Sadd, <br> P.O. Box. 37556 - Doha, Qatar | www.mybookqatar.com </p> </ul>');
         }
         $('.currentYear').text((new Date()).getFullYear());
@@ -92,10 +92,10 @@
 
       $('.link-btn').click(function () {
         $("#results").html("");
-      var dbRef = firebase.database().ref().child('food');
+        var dbRef = firebase.database().ref().child('food');
         dbRef.on('value', listData1, null);
 
-        dbRef = firebase.database().ref().child('leis');
+        dbRef = firebase.database().ref().child('plea');
         dbRef.on('value', listData1, null);
 
         dbRef = firebase.database().ref().child('heal');
@@ -143,9 +143,9 @@
         if (this.id === "food-btn") {
           $('.maaga').hide();
           $('#food').show();
-        } else if (this.id === "leis-btn") {
+        } else if (this.id === "plea-btn") {
           $('.maaga').hide();
-          $('#leis').show();
+          $('#plea').show();
         } else if (this.id === "heal-btn") {
           $('.maaga').hide();
           $('#heal').show();
@@ -606,8 +606,8 @@
               <img src="food.png" alt="Food & Drinks Icon" height="25px" class="sidenav-icon">Food &amp; Drinks</a>
           </p>
           <p>
-            <a href="#" id="leis-btn" class="link-btn">
-              <img src="leis.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a>
+            <a href="#" id="plea-btn" class="link-btn">
+              <img src="plea.png" alt="Leisure & Pleasure Icon" height="25px" class="sidenav-icon">Leisure &amp; Pleasure</a>
           </p>
           <p>
             <a href="#" id="heal-btn" class="link-btn">
